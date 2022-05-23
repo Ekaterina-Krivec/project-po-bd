@@ -13,7 +13,7 @@ DATABASE = {
     'database': os.getenv('DB_NAME', default='mydb')
 }
 
-engine = create_engine(URL(**DATABASE))
+engine = create_engine(os.getenv('PostgresURL'))
 session = scoped_session(sessionmaker(autocommit=False,
                                       autoflush=False,
                                       bind=engine))
