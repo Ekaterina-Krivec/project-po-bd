@@ -10,7 +10,7 @@ class Painting(Base):
 
     id_painting = sa.Column('idPainting', sa.Integer, primary_key=True)
     name = sa.Column('name', sa.String)
-    id_artist = sa.Column('idArtist', sa.Integer,sa.ForeignKey('artist.idArtist') )
+    id_artist = sa.Column('idArtist', sa.Integer, sa.ForeignKey('artist.idArtist') )
     price = sa.Column('price', sa.Float)
     id_owner = sa.Column('idOwner', sa.Integer)
     characteristics = sa.Column('Characteristics_code', sa.String)
@@ -22,7 +22,8 @@ class Artist(Base):
     __tablename__ = 'artist'
 
     id_artist = sa.Column('idArtist', sa.Integer, primary_key=True)
-    id_painting = sa.Column('idPainting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
+    name = sa.Column('name', sa.String)
+    painting = sa.Column('painting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
     country = sa.Column('country', sa.String)
     style = sa.Column('style', sa.String)
 
@@ -30,7 +31,8 @@ class Owner(Base):
     __tablename__ = 'owner'
 
     id_owner = sa.Column('idOwner', sa.Integer, primary_key=True)
-    id_painting = sa.Column('idPainting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
+    name = sa.Column('name', sa.String)
+    painting = sa.Column('painting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
     contacts = sa.Column('contact', sa.String)
 
 
