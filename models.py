@@ -10,13 +10,21 @@ class Painting(Base):
 
     id_painting = sa.Column('idPainting', sa.Integer, primary_key=True)
     name = sa.Column('name', sa.String)
-    id_artist = sa.Column('idArtist', sa.Integer)
+    id_artist = sa.Column('idArtist', sa.Integer,sa.ForeignKey('artist.idArtist') )
     price = sa.Column('price', sa.Float)
     id_owner = sa.Column('idOwner', sa.Integer)
-    characteristics_code = sa.Column('Characteristics_code', sa.Integer)
+    characteristics = sa.Column('Characteristics_code', sa.String)
 
     def __repr__(self):
         return f'{self.name}'
+
+class Artist(Base):
+    __tablename__ = 'artist'
+
+    id_artist = sa.Column('idArtist', sa.Integer, primary_key=True)
+    id_painting = sa.Column('idPainting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
+    country = sa.Column('country', sa.String)
+    style = sa.Column('style', sa.String)
 
 
 class Exhibition(Base):
@@ -52,3 +60,5 @@ class PotentialBuyer(Base):
     contacts = sa.Column('contacts', sa.String)
     address = sa.Column('address', sa.String)
     painting = relationship('Painting')
+
+    
