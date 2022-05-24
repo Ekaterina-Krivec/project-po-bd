@@ -26,6 +26,13 @@ class Artist(Base):
     country = sa.Column('country', sa.String)
     style = sa.Column('style', sa.String)
 
+class Owner(Base):
+    __tablename__ = 'owner'
+
+    id_owner = sa.Column('idOwner', sa.Integer, primary_key=True)
+    id_painting = sa.Column('idPainting', sa.Integer, sa.ForeignKey('paintings.idPainting'))
+    contacts = sa.Column('contact', sa.String)
+
 
 class Exhibition(Base):
     __tablename__ = 'exhibitions'
