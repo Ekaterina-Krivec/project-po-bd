@@ -2,7 +2,7 @@ import sqlalchemy as sa
 from sqlalchemy.orm import relationship
 from db_setup import Base
 
-__all__ = ['Painting', 'Exhibition', 'Auction', 'PotentialBuyer']
+__all__ = ['Painting', 'Exhibition', 'Auction', 'PotentialBuyer', 'Artist', 'Owner']
 
 
 class Painting(Base):
