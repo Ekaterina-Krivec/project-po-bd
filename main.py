@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'shdbghbdfhgbdfjhbgjhdfbgjhbdfjhgbdfjhbgjhdfbgjbd'
 app.config['FLASK_ADMIN_SWATCH'] = 'cosmo'
 
-admin = Admin(app, name='Atr Territory')
+admin = Admin(app, name='Art Territory')
 admin.add_view(ModelView(Painting, session))
 admin.add_view(ModelView(Auction, session))
 admin.add_view(ModelView(Exhibition, session))
